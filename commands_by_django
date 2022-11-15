@@ -1,0 +1,112 @@
+№1
+us1 = User.objects.create_user(username = 'Kirill')
+us2 = User.objects.create_user(username = 'Liam')
+
+№2
+Author.objects.create(authorUser = us1)
+Author.objects.create(authorUser = us2)
+
+№3
+Category.objects.create(name = 'PET')
+Category.objects.create(name = 'FOOD')
+Category.objects.create(name = 'WORK')
+Category.objects.create(name = 'SPORT')
+
+№4
+author1 = Author.objects.get(id=1)
+author2 = Author.objects.get(id=2)
+st1 = Post.objects.create(author=author1, categoryType='AR', title='Good work whis p
+et', text='manywords')
+st2 = Post.objects.create(author=author2, categoryType='AR', title='Sports food', te
+xt = 'manymanywords')
+nw1 = Post.objects.create(author=author2, categoryType='NW', title='Sports dogs are
+fast', text='sometext')
+
+№5
+Post.objects.get(id=1).postCategory.add(Category.objects.get(id=1))
+Post.objects.get(id=1).postCategory.add(Category.objects.get(id=3))
+Post.objects.get(id=2).postCategory.add(Category.objects.get(id=2))
+Post.objects.get(id=2).postCategory.add(Category.objects.get(id=4))
+Post.objects.get(id=3).postCategory.add(Category.objects.get(id=1))
+Post.objects.get(id=3).postCategory.add(Category.objects.get(id=4))
+
+№6
+com1=Comment.objects.create(commentPost=Post.objects.get(id=1), commentUser=Author.o
+bjects.get(id=2).authorUser, text ='Cool')
+com2=Comment.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author.o
+bjects.get(id=1).authorUser, text='Good work')
+com3=Comment.objects.create(commentPost=Post.objects.get(id=3), commentUser=Author.objects.get(id=1).authorUser,
+text='Nothing interesting')
+com4=Comment.objects.create(commentPost=Post.objects.get(id=2), commentUser=Author.objects.get(id=1).authorUser,
+text='you must continue')
+
+№7
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=2).like()
+Comment.objects.get(id=2).like()
+Comment.objects.get(id=2).like()
+Comment.objects.get(id=3).like()
+Comment.objects.get(id=3).like()
+Comment.objects.get(id=3).like()
+Comment.objects.get(id=4).like()
+Comment.objects.get(id=1).like()
+Comment.objects.get(id=1).dislike()
+Comment.objects.get(id=1).dislike()
+Comment.objects.get(id=2).dislike()
+Comment.objects.get(id=2).dislike()
+Comment.objects.get(id=2).dislike()
+Comment.objects.get(id=2).dislike()
+Comment.objects.get(id=3).dislike()
+Comment.objects.get(id=3).dislike()
+Comment.objects.get(id=4).dislike()
+Post.objects.get(id=1).like()
+Post.objects.get(id=1).like()
+Post.objects.get(id=1).like()
+Post.objects.get(id=2).like()
+Post.objects.get(id=2).like()
+Post.objects.get(id=3).like()
+Post.objects.get(id=3).like()
+Post.objects.get(id=1).dislike()
+Post.objects.get(id=2).dislike()
+Post.objects.get(id=3).dislike()
+
+№8
+a=Author.objects.get(id=1)
+a.update_rating()
+a.ratingAuthor
+b=Author.objects.get(id=2)
+b.update_rating()
+b.ratingAuthor
+
+#9
+c=Author.objects.all().order_by('-ratingAuthor')[:1]
+for i in c:
+    i.ratingAuthor
+    i.authorUser.username
+
+#10
+n=Post.objects.all().order_by('-rating')[:1]
+for i in n:
+    i.dateCreation
+    i.author.authorUser.username
+    i.rating
+    i.title
+    i.preview()
+
+#11
+k=Comment.objects.all()
+for i in k:
+    i.dateCreation
+    i.commentUser.username
+    i.rating
+    i.text
+
+
+
+
+
+
+

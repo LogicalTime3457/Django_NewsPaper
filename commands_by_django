@@ -97,12 +97,15 @@ for i in n:
     i.preview()
 
 #11
-k=Comment.objects.all()
+n=Post.objects.order_by('-rating')[0]
+k=n.comment_set.all()
 for i in k:
     i.dateCreation
     i.commentUser.username
     i.rating
     i.text
+
+
 
 
 

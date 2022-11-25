@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
@@ -39,6 +41,9 @@ class Post(models.Model):
     title = models.CharField(max_length=128)
     text = models.TextField()
     rating = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f'{self.title.title()} ({self.dateCreation.date()}): {self.text}'
 
     def like(self):
         self.rating += 1

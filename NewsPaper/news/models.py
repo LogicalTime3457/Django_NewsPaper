@@ -3,11 +3,15 @@ from datetime import datetime
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models import Sum
+from django.urls import reverse
 
 
 class Author(models.Model):
     authorUser = models.OneToOneField(User, on_delete=models.CASCADE)
     ratingAuthor = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f'{self.authorUser.username}'
 
     def update_rating(self):
         postRat = self.post_set.aggregate(postRating=Sum('rating'))
@@ -24,6 +28,14 @@ class Author(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=64, unique=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'
+        ordering = ['-name']
 
 
 class Post(models.Model):
@@ -44,6 +56,9 @@ class Post(models.Model):
 
     def __str__(self):
         return f'{self.title.title()} ({self.dateCreation.date()}): {self.text}'
+
+    def get_absolute_url(self):
+        return reverse('post_detail', args=[str(self.id)])
 
     def like(self):
         self.rating += 1

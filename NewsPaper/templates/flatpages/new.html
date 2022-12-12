@@ -4,8 +4,8 @@
 
 {% block title %}
 News
-{% endblock %}
+{% endblock title %}
 
 {% block content %}
-<h1>{{ new.title }} ({{ new.dateCreation|date:'d M Y H:i'}}): {{new.text|censor}}</h1>
+<h1>{{ new.title }} ({{ new.dateCreation|date:'d M Y H:i'}}) : {{new.text|censor}} Author: {{ new.author.authorUser.username }} </h1>
 {% endblock %}

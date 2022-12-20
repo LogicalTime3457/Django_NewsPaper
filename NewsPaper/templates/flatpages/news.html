@@ -1,6 +1,7 @@
 {% extends 'flatpages/default.html' %}
 
 {% load post_filters %}
+{% load post_tags %}
 
 {% block title %}
 News
@@ -10,6 +11,11 @@ News
     <h1>All news</h1>
     <tr><h7>{{ news|length }} news</h7></tr>
 
+    <hr>
+
+    {% if perms.news.add_product %}
+    <a href="{% url 'post_create' %}">Добавить новость/статью</a>
+    {% endif %}
 
     {% if news %}
     <hr>
@@ -20,6 +26,11 @@ News
                 <td>Начало</td>
                 <td>Автор</td>
                 <td>Категория</td>
+
+                {% if perms.news.change_post %}
+                <td>Действия</td>
+                {% endif %}
+
             </tr>
             {% for new in news|dictsort:'dateCreation' %}
             <tr>
@@ -28,6 +39,12 @@ News
                 <td>{{ new.text|truncatewords:20|censor }}</td>
                 <td>{{ new.author.authorUser.username }}</td>
                 <td>{{ new.get_categoryType_display }}</td>
+
+                <td>
+                    {% if perms.news.change_post %}
+                    <a href="{% url 'post_update' new.id %}">Изменить</a>
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </table>

@@ -1,12 +1,14 @@
 from datetime import datetime
 
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
+from django.shortcuts import get_object_or_404, render
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView
 )
 
-from .models import Post
+from .models import Post, Category
 from .filters import PostFilter
 from .forms import PostForms
 
@@ -66,3 +68,39 @@ class PostDelete(DeleteView):
     model = Post
     template_name = 'flatpages/post_delete.html'
     success_url = reverse_lazy('post_list')
+
+
+class CategoryListView(ListView):
+    model = Post
+    template_name = 'flatpages/category_list.html'
+    context_object_name = 'category_news_list'
+
+    def get_queryset(self):
+        self.postCategory = get_object_or_404(Category, id=self.kwargs['pk'])
+        queryset = Post.objects.filter(postCategory=self.postCategory).order_by('-dateCreation')
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_not_subscriber'] = self.request.user not in self.postCategory.subscribers.all()
+        context['postCategory'] = self.postCategory
+        return context
+
+
+@login_required
+def add_subscribe(request, pk):
+    user = request.user
+    category = Category.objects.get(id=pk)
+    category.subscribers.add(user)
+
+    message = f"Вы успешно подписались на рассылку новостей категории: '{category}'"
+    return render(request, 'flatpages/subscribe.html', {'message': message,})
+
+@login_required
+def off_subscribe(request, pk):
+    user = request.user
+    category = Category.objects.get(id=pk)
+    category.subscribers.remove(user)
+
+    message = f"Вы успешно отписались от рассылки новостей категории: '{category}'"
+    return render(request, 'flatpages/offsubscribe.html', {'message': message,})

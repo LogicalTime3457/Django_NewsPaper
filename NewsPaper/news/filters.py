@@ -1,6 +1,7 @@
 import django_filters
 from django_filters import FilterSet
 from django.forms import DateInput
+
 from .models import Post, Author, Category
 
 

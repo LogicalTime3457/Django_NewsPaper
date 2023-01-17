@@ -70,12 +70,15 @@ class Post(models.Model):
         self.save()
 
     def preview(self):
-        return self.text[0:125] + '...'
+        return self.text[0:51] + '...'
 
 
 class PostCategory(models.Model):
     postThrough = models.ForeignKey(Post, on_delete=models.CASCADE)
     categoryTrough = models.ForeignKey(Category, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.postThrough}: {self.categoryTrough}'
 
 
 class Comment(models.Model):
@@ -92,3 +95,6 @@ class Comment(models.Model):
     def dislike(self):
         self.rating -= 1
         self.save()
+
+    def __str__(self):
+        return f'{self.commentPost}: {self.commentUser}: {self.text}: {self.dataCreation}: {self.rating}'

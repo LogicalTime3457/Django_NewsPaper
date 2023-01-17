@@ -45,7 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django.contrib.flatpages',
     'django_filters',
-    'news',
+    'django_apscheduler',
+    'news.apps.NewsConfig',
     'accounts',
     'allauth',
     'allauth.account',
@@ -150,13 +151,15 @@ STATICFILES_DIRS = [
     BASE_DIR / "static"
 ]
 
+LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/news'
-
+ACCOUNT_LOGOUT_REDIRECT_URL = '/accounts/login/'
+#ACCOUNTS_FORMS = {'signup': 'news.forms.BasicsSignupForm'}
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'none'
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 
 ACCOUNT_FORMS = {"signup": "accounts.forms.AuthorSignupForm"}
 
@@ -168,3 +171,9 @@ EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = True
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL')
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+APSCHEDULER_DATETIME_FORMAT = 'N j, Y, f:s a'
+
+APSCHEDULER_RUN_NOW_TIMEOUT = 25

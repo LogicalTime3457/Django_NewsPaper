@@ -41,7 +41,7 @@
   <h3 align="center">Django project - NewsPortal</h3>
 
   <p align="center">
-    Give information about difirent things in the world
+    Это учебный проект по созданию Новостного портала.
  <!--  
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
@@ -87,12 +87,25 @@
 -->
 
 
-
 <!-- ABOUT THE PROJECT -->
-<!--
+  
 ## About The Project
+* Гости портала могут просматривать новости по различным направлениям.
+* Новости разделены на отделные страницы, между страницами организован постраничный переход.
+* Внешний вид новостной страницы организован следующим образом (на экран выводится информация в табличной форме):
+   - название статьи (организовано как ссылка на данную статью);
+   - краткое содежание; 
+   - категории, которым данная статья относится(организовано как ссылка на лист статей только выбранной категории);
+   - кнопки Изменить/Удалить статью (появляются только у зарегестрированных гостей).
+* Гости портала могут регистрироваться на сайте и подписываться на одну или несколько категорий новостей.
+* Также на странице присутсвует кнопка Добавить статью (данная опция доступна только зарегестрированным пользователям),
+по ней осуществляется переход в специальную форму создания новой статьи или новости.
+* При регистрации на сайте гостю приходит приветсвенное письмо на его почтовый адрес (который он указал при регистрации на сайте). 
+* В момент когда гость подписывается на определенную категорию новостей, у него появляется возможность отписаться от выбранной категории и переписаться на другую.
+* Всем подписчикам один раз в неделю будет приходить рассылка(по электронным адресам) со всеми новыми новостями/статьями в выбранных категориях.
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<!--
+<--[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
@@ -106,13 +119,19 @@ Of course, no one template will serve all projects since your needs may be diffe
 Use the `BLANK_README.md` to get started.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+-->
 
 
+
+
+### Built With
+
+* Проект построен на основе Django==4.1.3
+* При организации регистрации пользователей использовался пакет allauth.
+* Для того чтобы реализовать логику реализации периодических задач использовались Celery и Redis (при реализации данных процессов возникли проблемы, так как на ПК установлен Windows10, а Celery не очень дружит с ним, пришлось искать варианты решения. Первый вариант установить WSL и далее Ubuntu, для решения вопроса посредством Linux. Второй вариант: через PowerShell установить Chocolatey(пакетный менеджер) и спомощью него также в RowerShell провести установку Redis.
 
 
 <!--
-### Built With
-
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * [![Next][Next.js]][Next-url]
@@ -130,9 +149,16 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 
 <!-- GETTING STARTED -->
-<!--
-## Getting Started
 
+## Getting Started
+* Нужно в PowerShell запустить Redis (с помощью команды redis-server)
+* В PyCarm запускаем три терминала:
+   * в первом запускаем сервер;
+   * во втором запускаем worker;
+   * в третьем запускаем beat.
+  
+  
+<!--
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
 

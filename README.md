@@ -38,10 +38,9 @@
   </a>
  -->
 
-  <h3 align="center">Django project - NewsPortal</h3>
+  <h1 align="center">Django project - NewsPortal</h1>
 
-  <p align="center">
-    Это учебный проект по созданию Новостного портала.
+  <h2 <p align="center"> Это учебный проект по созданию Новостного портала.</p></h2>
  <!--  
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>

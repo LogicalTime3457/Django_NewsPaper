@@ -3,14 +3,15 @@ from datetime import datetime
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.urls import reverse_lazy
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, render, redirect
 from django.views.generic import (
-    ListView, DetailView, CreateView, UpdateView, DeleteView
+    View, ListView, DetailView, CreateView, UpdateView, DeleteView
 )
 
 from .models import Post, Category
 from .filters import PostFilter
 from .forms import PostForms
+from .tasks import notify_about_new_post, mailing_weekly
 
 
 class NewsList(ListView):
@@ -96,6 +97,7 @@ def add_subscribe(request, pk):
     message = f"Вы успешно подписались на рассылку новостей категории: '{category}'"
     return render(request, 'flatpages/subscribe.html', {'message': message,})
 
+
 @login_required
 def off_subscribe(request, pk):
     user = request.user
@@ -104,3 +106,16 @@ def off_subscribe(request, pk):
 
     message = f"Вы успешно отписались от рассылки новостей категории: '{category}'"
     return render(request, 'flatpages/offsubscribe.html', {'message': message,})
+
+
+class WeekView(View):
+    def get(self, request):
+        notify_about_new_post.delay()
+        return redirect("/")
+
+
+class WeekViews(View):
+    def get(self, request):
+        mailing_weekly.delay()
+        return redirect("/")
+

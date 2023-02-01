@@ -1,5 +1,6 @@
 import os
 from celery import Celery
+from celery.schedules import crontab
 
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'NewsPaper.settings')
@@ -21,6 +22,6 @@ app.conf.beat_schedule = {
 app.conf.beat_schedule = {
     'when_week': {
         'task': 'news.tasks.mailing_weekly',
-        'schedule': 30,
+        'schedule': crontab(hour=11, minute=15, day_of_week='monday'),
     },
 }

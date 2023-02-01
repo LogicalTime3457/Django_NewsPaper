@@ -1,4 +1,7 @@
+import logging
+
 import datetime
+
 from celery import shared_task
 
 
@@ -7,8 +10,14 @@ from django.dispatch import receiver
 from django.template.loader import render_to_string
 from django.core.mail import EmailMultiAlternatives
 
+from django_apscheduler.models import DjangoJobExecution
+from apscheduler.triggers.cron import CronTrigger
+from django.core.management.base import BaseCommand
+from django_apscheduler.jobstores import DjangoJobStore
+from apscheduler.schedulers.blocking import BlockingScheduler
+
 from .models import PostCategory, Post, Category
-from NewsPaper.settings import SITE_URL, DEFAULT_FROM_EMAIL
+from NewsPaper.settings import SITE_URL, DEFAULT_FROM_EMAIL, TIME_ZONE
 
 
 @shared_task
@@ -79,5 +88,6 @@ def mailing_weekly():
 
     msg.attach_alternative(html_content, 'text/html')
     msg.send()
+
 
 

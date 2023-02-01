@@ -8,6 +8,8 @@ from django.views.generic import (
     View, ListView, DetailView, CreateView, UpdateView, DeleteView
 )
 
+from django.core.cache import cache
+
 from .models import Post, Category
 from .filters import PostFilter
 from .forms import PostForms
@@ -33,6 +35,16 @@ class NewsDetail(DetailView):
     template_name = 'flatpages/new.html'
     context_object_name = 'new'
 
+#здесь мы применим кэширование (при иизменении новости)
+    def get_object(self, *args, **kwargs):
+        obj = cache.get(f'news-{self.kwargs["pk"]}', None)
+
+        if not obj:
+            obj = super().get_object(queryset=self.queryset)
+            cache.set(f'news-{self.kwargs["pk"]}', obj)
+
+        return obj
+
 
 class NewsSearch(ListView):
     model = Post
@@ -41,9 +53,9 @@ class NewsSearch(ListView):
     paginate_by = 10
 
     def get_context_data(self, **kwargs):
-       context = super().get_context_data(**kwargs)
-       context['filterset'] = self.filterset
-       return context
+        context = super().get_context_data(**kwargs)
+        context['filterset'] = self.filterset
+        return context
 
     def get_queryset(self):
         queryset = super().get_queryset()
@@ -95,7 +107,7 @@ def add_subscribe(request, pk):
     category.subscribers.add(user)
 
     message = f"Вы успешно подписались на рассылку новостей категории: '{category}'"
-    return render(request, 'flatpages/subscribe.html', {'message': message,})
+    return render(request, 'flatpages/subscribe.html', {'message': message, })
 
 
 @login_required
@@ -105,7 +117,7 @@ def off_subscribe(request, pk):
     category.subscribers.remove(user)
 
     message = f"Вы успешно отписались от рассылки новостей категории: '{category}'"
-    return render(request, 'flatpages/offsubscribe.html', {'message': message,})
+    return render(request, 'flatpages/offsubscribe.html', {'message': message, })
 
 
 class WeekView(View):
@@ -118,4 +130,3 @@ class WeekViews(View):
     def get(self, request):
         mailing_weekly.delay()
         return redirect("/")
-

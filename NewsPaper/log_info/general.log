@@ -1,0 +1,30 @@
+TIME: 2023-03-22 15:05:57,247 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 15:06:40,024 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 15:17:34,737 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 15:24:49,188 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\NewsPaper\settings.py changed, reloading.
+TIME: 2023-03-22 15:24:49,735 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 15:26:21,064 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\NewsPaper\settings.py changed, reloading.
+TIME: 2023-03-22 15:26:21,849 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 15:26:59,934 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\NewsPaper\settings.py changed, reloading.
+TIME: 2023-03-22 17:57:05,710 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 17:58:05,154 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 17:58:33,288 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\news\views.py changed, reloading.
+TIME: 2023-03-22 17:58:33,916 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 18:00:35,882 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\NewsPaper\settings.py changed, reloading.
+TIME: 2023-03-22 18:18:44,704 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 18:20:06,626 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\NewsPaper\settings.py changed, reloading.
+TIME: 2023-03-22 18:20:07,128 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 18:20:46,723 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\NewsPaper\settings.py changed, reloading.
+TIME: 2023-03-22 18:20:47,302 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 18:21:23,893 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\news\views.py changed, reloading.
+TIME: 2023-03-22 18:21:24,455 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 18:26:50,460 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 18:28:50,567 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\NewsPaper\settings.py changed, reloading.
+TIME: 2023-03-22 18:28:51,241 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 18:30:10,079 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\news\views.py changed, reloading.
+TIME: 2023-03-22 18:30:10,688 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 18:30:41,896 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\NewsPaper\settings.py changed, reloading.
+TIME: 2023-03-22 18:59:51,475 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 19:01:51,106 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\news\views.py changed, reloading.
+TIME: 2023-03-22 19:01:51,791 | LEVEL: INFO | MODULE: autoreload | MESSAGE: Watching for file changes with StatReloader
+TIME: 2023-03-22 19:02:51,064 | LEVEL: INFO | MODULE: autoreload | MESSAGE: C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\NewsPaper\NewsPaper\settings.py changed, reloading.

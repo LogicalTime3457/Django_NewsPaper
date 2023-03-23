@@ -18,7 +18,7 @@ from .tasks import notify_about_new_post, mailing_weekly
 
 class NewsList(ListView):
     model = Post
-    ordering = 'title'
+    ordering = '-dateCreation'
     template_name = 'flatpages/news.html'
     context_object_name = 'news'
     paginate_by = 10
@@ -67,7 +67,7 @@ class PostCreate(PermissionRequiredMixin, CreateView):
     permission_required = ('news.add_post',)
     form_class = PostForms
     model = Post
-    template_name = 'flatpages/post_edit.html'
+    template_names = 'flatpages//post_edit.html'
 
 
 class PostUpdate(PermissionRequiredMixin, UpdateView):

@@ -10,9 +10,18 @@ class PostCategoryInLine(admin.TabularInline):
 
 class PostAdmin(admin.ModelAdmin):
     inlines = [PostCategoryInLine]
+    list_display = ('author', 'title', 'dateCreation', 'rating')
+    list_filter = ('author', 'title', 'dateCreation', 'rating')
+    search_fields = ('author__authorUser__username', 'title', 'rating')
 
 
-admin.site.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ('authorUser', 'ratingAuthor',)
+    list_filter = ('authorUser__username', 'ratingAuthor',)
+    search_fields = ('authorUser__username', 'ratingAuthor',)
+
+
+admin.site.register(Author, AuthorAdmin)
 admin.site.register(Category)
 admin.site.register(Post, PostAdmin)
 admin.site.register(PostCategory)

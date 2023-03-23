@@ -32,27 +32,27 @@ News
                 {% endif %}
 
             </tr>
-            {% for new in news|dictsort:'dateCreation' %}
-            <tr>
-                <td><a href="{% url 'post_detail' new.id %}">{{ new.title|censor }}</a></td>
-                <td>{{ new.dateCreation|date:'d M Y H:i' }}</td>
-                <td>{{ new.text|truncatewords:20|censor }}</td>
-                <td>{{ new.author.authorUser.username }}</td>
-                <td>
-                    {% for category in new.postCategory.all %}
-                    <a href="{% url 'category_list' category.id %}">{{ category }}</a>
-                    {% endfor %}
-                </td>
+                {% for new in news %}
+                    <tr style="background-color: {% cycle 'pink' 'white' %}">
+                        <td><a href="{% url 'post_detail' new.id %}">{{ new.title|censor }}</a></td>
+                        <td>{{ new.dateCreation|date:'d M Y H:i' }}</td>
+                        <td>{{ new.text|truncatewords:20|censor }}</td>
+                        <td>{{ new.author.authorUser.username }}</td>
+                        <td>
+                            {% for category in new.postCategory.all %}
+                            <a href="{% url 'category_list' category.id %}">{{ category }}</a>
+                            {% endfor %}
+                        </td>
 
-                <td>
-                    {% if perms.news.change_post %}
-                    <a href="{% url 'post_update' new.id %}">Изменить</a>
-                    <a href="{% url 'post_delete' new.id %}">Удалить</a>
-                    {% endif %}
-                </td>
+                        <td>
+                            {% if perms.news.change_post %}
+                            <a href="{% url 'post_update' new.id %}">Изменить</a>
+                            <a href="{% url 'post_delete' new.id %}">Удалить</a>
+                            {% endif %}
+                        </td>
 
-            </tr>
-            {% endfor %}
+                    </tr>
+                {% endfor %}
         </table>
     {% else %}
         <h2>Новостей нет</h2>
@@ -79,4 +79,4 @@ News
 {% endblock content %}
 
 
-#
+

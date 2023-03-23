@@ -103,4 +103,4 @@ class Comment(models.Model):
         self.save()
 
     def __str__(self):
-        return f'{self.commentPost}: {self.commentUser}: {self.text}: {self.dataCreation}: {self.rating}'
+        return f'{self.commentPost}: {self.commentUser}: {self.text}: {self.dateCreation}: {self.rating}'

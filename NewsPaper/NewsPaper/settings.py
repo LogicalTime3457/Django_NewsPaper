@@ -36,6 +36,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,15 +60,21 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware'
+    'django.contrib.flatpages.middleware.FlatpageFallbackMiddleware',
+    'news.middlewares.TimezoneMiddleware',
 ]
 
 ROOT_URLCONF = 'NewsPaper.urls'
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale')
+]
 
 TEMPLATES = [
     {
@@ -100,6 +107,12 @@ AUTHENTICATION_BACKENDS = [
 
 
 WSGI_APPLICATION = 'NewsPaper.wsgi.application'
+
+
+LANGUAGES = [
+    ('en-us', 'English'),
+    ('ru', 'Русский')
+]
 
 
 # Database
@@ -274,7 +287,7 @@ LOGGING = {
             'filters': ['require_debug_true']
         },
         'console': {
-            'level': 'DEBUG',
+            'level': 'ERROR',
             'formatter': 'console',
             'filters': ['require_debug_true'],
             'class': 'logging.StreamHandler'
@@ -282,8 +295,8 @@ LOGGING = {
     },
     'loggers': {
         'django': {
-            'handlers': ['console', 'WARNING_console', 'ERROR_CRITICAL_console', 'security'],
-            'level': 'DEBUG',
+            'handlers': ['console', 'WARNING_console', 'ERROR_CRITICAL_console', 'general'],
+            'level': 'ERROR',
             'propagate': True
         },
         'django.request': {

@@ -1,0 +1,105 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-29 12:59+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n"
+"%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: .\templates\flatpages\default.html:12
+msgid "NewsPortal"
+msgstr "НовостнойПортал"
+
+#: .\templates\flatpages\default.html:22
+msgid "NEWS PORTAL"
+msgstr "НОВОСТНОЙ ПОРТАЛ"
+
+#: .\templates\flatpages\default.html:26
+msgid "Home"
+msgstr "Главная страница"
+
+#: .\templates\flatpages\default.html:61
+msgid "Time zone:"
+msgstr "Часовой пояс:"
+
+#: .\templates\flatpages\news.html:13
+msgid "All news"
+msgstr "Все новости"
+
+#: .\templates\flatpages\news.html:14 .\templates\flatpages\news_search.html:14
+msgid "news"
+msgstr "новостей(-ь, -и)"
+
+#: .\templates\flatpages\news.html:19
+msgid "Добавить новость/статью"
+msgstr "Добавить новость/статью"
+
+#: .\templates\flatpages\news.html:26 .\templates\flatpages\news_search.html:25
+msgid "Заголовок"
+msgstr "Заголовок"
+
+#: .\templates\flatpages\news.html:27 .\templates\flatpages\news_search.html:26
+msgid "Дата публикации"
+msgstr "Дата публикации"
+
+#: .\templates\flatpages\news.html:28 .\templates\flatpages\news_search.html:27
+msgid "Начало"
+msgstr "Начало"
+
+#: .\templates\flatpages\news.html:29 .\templates\flatpages\news_search.html:28
+msgid "Автор"
+msgstr "Автор"
+
+#: .\templates\flatpages\news.html:30 .\templates\flatpages\news_search.html:29
+msgid "Категория"
+msgstr "Категория"
+
+#: .\templates\flatpages\news.html:33
+msgid "Действия"
+msgstr "Действия"
+
+#: .\templates\flatpages\news.html:51
+msgid "Изменить"
+msgstr "Изменить"
+
+#: .\templates\flatpages\news.html:52
+msgid "Удалить"
+msgstr "Удалить"
+
+#: .\templates\flatpages\news.html:60 .\templates\flatpages\news_search.html:42
+msgid "Новостей нет"
+msgstr "Новостей нет"
+
+#: .\templates\flatpages\news_search.html:13
+msgid "Search a news"
+msgstr "Поиск новости"
+
+#: .\templates\flatpages\post_delete.html:6
+msgid "Удаление статьи или новости"
+msgstr "Удаление статьи или новости"
+
+#: .\templates\flatpages\post_delete.html:10
+msgid "Удаляем"
+msgstr "Удаляем"
+
+#: .\templates\flatpages\post_edit.html:6
+msgid "Давляем Новость или Статью"
+msgstr "Добавляем Новость или Статью"
+
+#: .\templates\flatpages\post_update.html:6
+msgid "Редактируем Новость или Статью"
+msgstr "Редактируем Новость или Статью"

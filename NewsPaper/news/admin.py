@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Author, Category, Post, PostCategory, Comment
+from modeltranslation.admin import TranslationAdmin
 
 
 class PostCategoryInLine(admin.TabularInline):
@@ -21,8 +22,16 @@ class AuthorAdmin(admin.ModelAdmin):
     search_fields = ('authorUser__username', 'ratingAuthor',)
 
 
+class CategoryAdmin(TranslationAdmin):
+    model = Category
+
+
+class PostAdminTranslate(TranslationAdmin):
+    model = Post
+
+
 admin.site.register(Author, AuthorAdmin)
-admin.site.register(Category)
+admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
 admin.site.register(PostCategory)
 admin.site.register(Comment)

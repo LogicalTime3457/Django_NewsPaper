@@ -1,8 +1,9 @@
 {% extends 'flatpages/default.html' %}
 
+{% load i18n %}
 
 {% block content %}
-<h1>Редактируем Новость или Статью</h1>
+<h1>{% trans "Редактируем Новость или Статью" %}</h1>
 
 <form action="" method="post">
     {% csrf_token %}

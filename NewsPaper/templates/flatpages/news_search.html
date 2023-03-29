@@ -3,13 +3,15 @@
 {% load post_filters %}
 {% load post_tags %}
 
+{% load i18n %}
+
 {% block title %}
 News
 {% endblock title %}
 
 {% block content %}
-    <h1>Search a news</h1>
-    <tr><h7>{{ search|length }} news</h7></tr>
+    <h1>{% trans "Search a news" %}</h1>
+    <tr><h7>{{ search|length }} {% trans "news" %}</h7></tr>
 
      <form action="" method="GET">
        {{ filterset.form.as_p }}
@@ -20,11 +22,11 @@ News
     <hr>
         <table>
             <tr>
-                <td>Заголовок</td>
-                <td>Дата публикации</td>
-                <td>Начало</td>
-                <td>Автор</td>
-                <td>Категория</td>
+                <td>{% trans "Заголовок" %}</td>
+                <td>{% trans "Дата публикации" %}</td>
+                <td>{% trans "Начало" %}</td>
+                <td>{% trans "Автор" %}</td>
+                <td>{% trans "Категория" %}</td>
             </tr>
             {% for new in search|dictsort:'dateCreation' %}
             <tr>
@@ -37,7 +39,7 @@ News
             {% endfor %}
         </table>
     {% else %}
-        <h2>Новостей нет</h2>
+        <h2>{% trans "Новостей нет" %}</h2>
     {% endif %}
     {% if page_obj.has_previous %}
         <a href="?{% url_replace page=1 %}">1</a>

@@ -31,21 +31,22 @@ class NewsList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['time_create'] = Post.dateCreation
+        context['timezones'] = pytz.common_timezones
+        context['current_time'] = timezone.now()
         context['next_new'] = None
         return context
 
-
-
-    # def get(self, request):
-    #     string = _('All News')
-    #
-    #     return HttpResponse(string)
+    def post(self, request):
+        request.session['django_timezone'] = request.POST['timezone']
+        return redirect('/news')
 
 
 class NewsDetail(DetailView):
     model = Post
     template_name = 'flatpages/new.html'
     context_object_name = 'new'
+
+
 
 #здесь мы применим кэширование (при иизменении новости)
     def get_object(self, *args, **kwargs):
@@ -142,25 +143,6 @@ class WeekViews(View):
     def get(self, request):
         mailing_weekly.delay()
         return redirect("/")
-
-
-class Index(View):
-    def get(self, request):
-
-        current_time = timezone.now()
-
-        context = {
-            'current_time': timezone.now(),
-            'timezones': pytz.common_timezones,  # добавляем в контекст все доступные часовые пояса
-        }
-
-        return HttpResponse(render(request, 'default.html', context))
-
-    #  по пост-запросу будем добавлять в сессию часовой пояс, который и будет обрабатываться написанным нами ранее middleware
-    def post(self, request):
-        request.session['django_timezone'] = request.POST['timezone']
-        return redirect('/')
-
 
 
 

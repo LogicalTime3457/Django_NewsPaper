@@ -3,6 +3,7 @@
 {% load i18n %}
 {% load tz %}
 
+
 <html lang="en">
     <head>
         <meta charset="utf-8" />
@@ -10,6 +11,10 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>{% trans "NewsPortal" %} - {% block title %} {% endblock title %}</title>
+
+        <style>
+            body {background-color: {% if current_time.hour >= 19 or current_time <= 7 %} durkcyan {% else %} powderblue {% endif %}
+        </style>
         <!-- Favicon-->
         <!-- Core theme CSS (includes Bootstrap)-->
         {% load static %}
@@ -55,20 +60,7 @@
             <input type="submit" value="set">
         </form>
 
-        {% get_current_timezone as TIME_ZONE %}
-        <form action="" method="POST">
-            {% csrf_token %}
-            <label for="timezone">{% trans "Time zone:" %} </label>
-            <select name="timezone">
-                {% for tz in timezones %}
-                <option value="{{ tz }}" {% if tz == TIME_ZONE %} selected {% endif %}>{{ tz }}</option>
-                {% endfor %}
-            </select>
-            <input type="submit" value="set">
-        </form>
 
-        {{ TIME_ZONE }}
-        {{ current_time|timezone:TIME_ZONE }}
         <!-- Page content-->
         <div class="container">
             <div class="row">

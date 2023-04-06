@@ -603,3 +603,123 @@ Traceback (most recent call last):
     raise TemplateSyntaxError(
 django.template.exceptions.TemplateSyntaxError: timezone requires 2 arguments, 1 provided
 TIME: 2023-03-29 19:32:03,869 | LEVEL: ERROR | MESSAGE: "GET /news/ HTTP/1.1" 500 263580 | PATH:C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\servers\basehttp.py | STACK: None
+TIME: 2023-04-06 10:15:45,031 | LEVEL: ERROR | MESSAGE: Internal Server Error: /swagger-ui/ | PATH:C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\utils\log.py | STACK: (<class 'django.urls.exceptions.NoReverseMatch'>, NoReverseMatch("Reverse for 'openapi-schema' not found. 'openapi-schema' is not a valid view function or pattern name."), <traceback object at 0x0000018DD367E3C0>)
+Traceback (most recent call last):
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\defaulttags.py", line 472, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'openapi-schema' not found. 'openapi-schema' is not a valid view function or pattern name.
+TIME: 2023-04-06 10:15:45,039 | LEVEL: ERROR | MESSAGE: "GET /swagger-ui/ HTTP/1.1" 500 118885 | PATH:C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\servers\basehttp.py | STACK: None
+TIME: 2023-04-06 10:22:00,912 | LEVEL: ERROR | MESSAGE: Internal Server Error: /swagger-ui/ | PATH:C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\utils\log.py | STACK: (<class 'django.urls.exceptions.NoReverseMatch'>, NoReverseMatch("Reverse for 'static/openapi-schema' not found. 'static/openapi-schema' is not a valid view function or pattern name."), <traceback object at 0x0000025A83866B00>)
+Traceback (most recent call last):
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\defaulttags.py", line 472, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'static/openapi-schema' not found. 'static/openapi-schema' is not a valid view function or pattern name.
+TIME: 2023-04-06 10:22:00,920 | LEVEL: ERROR | MESSAGE: "GET /swagger-ui/ HTTP/1.1" 500 119074 | PATH:C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\servers\basehttp.py | STACK: None
+TIME: 2023-04-06 11:54:57,487 | LEVEL: ERROR | MESSAGE: Internal Server Error: /swagger-ui/ | PATH:C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\utils\log.py | STACK: (<class 'django.urls.exceptions.NoReverseMatch'>, NoReverseMatch("Reverse for 'openapi-schema' not found. 'openapi-schema' is not a valid view function or pattern name."), <traceback object at 0x0000012C8A0246C0>)
+Traceback (most recent call last):
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\defaulttags.py", line 472, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'openapi-schema' not found. 'openapi-schema' is not a valid view function or pattern name.
+TIME: 2023-04-06 11:54:57,495 | LEVEL: ERROR | MESSAGE: "GET /swagger-ui/ HTTP/1.1" 500 118885 | PATH:C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\servers\basehttp.py | STACK: None
+TIME: 2023-04-06 11:58:16,208 | LEVEL: ERROR | MESSAGE: Internal Server Error: /swagger-ui/ | PATH:C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\utils\log.py | STACK: (<class 'django.urls.exceptions.NoReverseMatch'>, NoReverseMatch("Reverse for '/static/openapi-schema' not found. '/static/openapi-schema' is not a valid view function or pattern name."), <traceback object at 0x000001BF19441C80>)
+Traceback (most recent call last):
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\backends\django.py", line 62, in render
+    return self.template.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 175, in render
+    return self._render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 167, in _render
+    return self.nodelist.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 1005, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 1005, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\base.py", line 966, in render_annotated
+    return self.render(context)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\template\defaulttags.py", line 472, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for '/static/openapi-schema' not found. '/static/openapi-schema' is not a valid view function or pattern name.
+TIME: 2023-04-06 11:58:16,208 | LEVEL: ERROR | MESSAGE: "GET /swagger-ui/ HTTP/1.1" 500 119231 | PATH:C:\Users\Friend\PycharmProjects\Django_Project_NewsPaper1\venv\lib\site-packages\django\core\servers\basehttp.py | STACK: None

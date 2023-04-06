@@ -1,0 +1,145 @@
+openapi: 3.0.2
+info:
+  title: API Schema
+  version: '0.1'
+  description: API for NEWSPORTAL
+paths:
+  /news/:
+    get:
+      operationId: listNews
+      description: 'List of News'
+      parameters: [ ]
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Post'
+          description: ''
+      tags:
+        - news
+    post:
+      operationId: createNews
+      description: 'Create News'
+      parameters: [ ]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Post'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+          description: ''
+      tags:
+        - news
+  /news/{id}/:
+      get:
+        operationId: retrieveNews
+        description: 'Retrieve News'
+        parameters:
+          - name: id
+            in: path
+            required: true
+            description: A unique integer value identifying this news.
+            schema:
+              type: string
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Post'
+            description: ''
+        tags:
+          - news
+      put:
+        operationId: updateNews
+        description: 'Update News'
+        parameters:
+          - name: id
+            in: path
+            required: true
+            description: A unique integer value identifying this news.
+            schema:
+              type: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Post'
+            description: ''
+        tags:
+          - news
+      patch:
+        operationId: partialUpdateNews
+        description: 'Partial Update News'
+        parameters:
+          - name: id
+            in: path
+            required: true
+            description: A unique integer value identifying this news.
+            schema:
+              type: string
+        requestBody:
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Post'
+        responses:
+          '200':
+            content:
+              application/json:
+                schema:
+                  $ref: '#/components/schemas/Post'
+            description: ''
+        tags:
+          - news
+      delete:
+        operationId: destroyNews
+        description: 'Destroy News'
+        parameters:
+          - name: id
+            in: path
+            required: true
+            description: A unique integer value identifying this news.
+            schema:
+              type: string
+        responses:
+          '204':
+            description: ''
+        tags:
+          - news
+components:
+  schemas:
+    Post:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          maxLength: 150
+        description:
+          type: string
+          maxLength: 300
+        date:
+          type: string
+          format: date-time
+          readOnly: true
+        done:
+          type: boolean
+      required:
+        - title
